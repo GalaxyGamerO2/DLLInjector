@@ -83,6 +83,11 @@ namespace DLLInjector
                 return;
             }
 
+            if(!File.Exists(DllPathTB.Text))
+            {
+                MessageBox.Show("The provided DLL does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             (bool, string) injectResult = BasicInject.Inject(Processes[ProcessesLV.SelectedIndices[0]], DllPathTB.Text);
 
