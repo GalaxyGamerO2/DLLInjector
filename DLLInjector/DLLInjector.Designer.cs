@@ -60,7 +60,7 @@
             ReloadBtn.Location = new Point(12, 415);
             ReloadBtn.Name = "ReloadBtn";
             ReloadBtn.Size = new Size(75, 23);
-            ReloadBtn.TabIndex = 1;
+            ReloadBtn.TabIndex = 3;
             ReloadBtn.Tag = "Theme_Button";
             ReloadBtn.Text = "Reload";
             ReloadBtn.UseVisualStyleBackColor = false;
@@ -75,7 +75,7 @@
             DllPathTB.Location = new Point(48, 118);
             DllPathTB.Name = "DllPathTB";
             DllPathTB.Size = new Size(659, 23);
-            DllPathTB.TabIndex = 2;
+            DllPathTB.TabIndex = 0;
             DllPathTB.Tag = "Theme_SecondaryColor";
             // 
             // label1
@@ -98,7 +98,7 @@
             BrowseBtn.Location = new Point(713, 118);
             BrowseBtn.Name = "BrowseBtn";
             BrowseBtn.Size = new Size(75, 23);
-            BrowseBtn.TabIndex = 4;
+            BrowseBtn.TabIndex = 1;
             BrowseBtn.Tag = "Theme_Button";
             BrowseBtn.Text = "Browse";
             BrowseBtn.UseVisualStyleBackColor = false;
@@ -146,7 +146,7 @@
             CloseBtn.Location = new Point(753, 12);
             CloseBtn.Name = "CloseBtn";
             CloseBtn.Size = new Size(35, 33);
-            CloseBtn.TabIndex = 7;
+            CloseBtn.TabIndex = 6;
             CloseBtn.Tag = "Theme_Button";
             CloseBtn.Text = "X";
             CloseBtn.UseVisualStyleBackColor = false;
@@ -175,7 +175,7 @@
             ProcessesLV.Name = "ProcessesLV";
             ProcessesLV.ShowGroups = false;
             ProcessesLV.Size = new Size(776, 262);
-            ProcessesLV.TabIndex = 8;
+            ProcessesLV.TabIndex = 2;
             ProcessesLV.Tag = "Theme_SecondaryColor";
             ProcessesLV.UseCompatibleStateImageBehavior = false;
             ProcessesLV.View = View.Details;
@@ -198,7 +198,7 @@
             ThemesBtn.Location = new Point(93, 415);
             ThemesBtn.Name = "ThemesBtn";
             ThemesBtn.Size = new Size(75, 23);
-            ThemesBtn.TabIndex = 1;
+            ThemesBtn.TabIndex = 4;
             ThemesBtn.Tag = "Theme_Button";
             ThemesBtn.Text = "Themes";
             ThemesBtn.UseVisualStyleBackColor = false;
@@ -245,7 +245,7 @@
             ThemeBlackRedBtn.Margin = new Padding(0);
             ThemeBlackRedBtn.Name = "ThemeBlackRedBtn";
             ThemeBlackRedBtn.Size = new Size(75, 23);
-            ThemeBlackRedBtn.TabIndex = 1;
+            ThemeBlackRedBtn.TabIndex = 2;
             ThemeBlackRedBtn.Tag = "Theme_Button";
             ThemeBlackRedBtn.Text = "Black Red";
             ThemeBlackRedBtn.UseVisualStyleBackColor = false;
@@ -261,7 +261,7 @@
             ThemeBlueRedBtn.Margin = new Padding(0);
             ThemeBlueRedBtn.Name = "ThemeBlueRedBtn";
             ThemeBlueRedBtn.Size = new Size(75, 23);
-            ThemeBlueRedBtn.TabIndex = 1;
+            ThemeBlueRedBtn.TabIndex = 3;
             ThemeBlueRedBtn.Tag = "Theme_Button";
             ThemeBlueRedBtn.Text = "Blue Red";
             ThemeBlueRedBtn.UseVisualStyleBackColor = false;
@@ -277,7 +277,7 @@
             ThemeNaziCordBtn.Margin = new Padding(0);
             ThemeNaziCordBtn.Name = "ThemeNaziCordBtn";
             ThemeNaziCordBtn.Size = new Size(75, 23);
-            ThemeNaziCordBtn.TabIndex = 1;
+            ThemeNaziCordBtn.TabIndex = 4;
             ThemeNaziCordBtn.Tag = "Theme_Button";
             ThemeNaziCordBtn.Text = "Nazicord";
             ThemeNaziCordBtn.UseVisualStyleBackColor = false;

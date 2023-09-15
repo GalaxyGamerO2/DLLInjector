@@ -83,7 +83,7 @@ namespace DLLInjector
                 return;
             }
 
-            if(!File.Exists(DllPathTB.Text))
+            if (!File.Exists(DllPathTB.Text))
             {
                 MessageBox.Show("The provided DLL does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
