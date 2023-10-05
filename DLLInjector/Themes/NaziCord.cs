@@ -13,10 +13,10 @@ namespace DLLInjector.Themes
         {
             Background = Resources.NaziCordBackground;
             Name = "Nazicord";
-            PrimaryColor = Color.FromArgb(49, 51, 56);
-            SecondaryColor = Color.FromArgb(43, 45, 49);
-            ButtonColor = Color.FromArgb(88, 101, 242);
-            ForeColor = Color.FromArgb(242, 243, 245);
+            PrimaryColor = 0xFF313338;
+            SecondaryColor = 0xFF2b2d31;
+            ButtonColor = 0xFF5865f2;
+            ForeColor = 0xFFf2f3f5;
         }
     }
 }

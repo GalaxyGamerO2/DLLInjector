@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DLLInjector.Themes
@@ -9,22 +10,24 @@ namespace DLLInjector.Themes
     public class Theme
     {
         public string Name { get; set; }
-        public Color PrimaryColor { get; set; }
-        public Color SecondaryColor { get; set; }
-        public Color ButtonColor { get; set; }
-        public Color ForeColor { get; set; }
+        public uint PrimaryColor { get; set; }
+        public uint SecondaryColor { get; set; }
+        public uint ButtonColor { get; set; }
+        public uint ForeColor { get; set; }
+
+        [JsonIgnore]
         public Bitmap Background { get; set; }
 
         public Theme()
         {
             Name = "Default";
-            PrimaryColor = Color.FromArgb(64, 64, 64);
-            SecondaryColor = Color.FromArgb(32, 32, 32);
+            PrimaryColor = 0xFF404040;
+            SecondaryColor = 0xFF202020;
             ButtonColor = SecondaryColor;
-            ForeColor = Color.FromArgb(255, 255, 255);
+            ForeColor = 0xFFFFFFFF;
             Background = new(800, 450);
             using Graphics gfx = Graphics.FromImage(Background);
-            using SolidBrush brush = new(PrimaryColor);
+            using SolidBrush brush = new(Color.FromArgb((int)PrimaryColor));
             gfx.FillRectangle(brush, 0, 0, Background.Width, Background.Height);
         }
     }

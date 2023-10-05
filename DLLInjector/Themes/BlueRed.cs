@@ -13,10 +13,10 @@ namespace DLLInjector.Themes
         {
             Background = Resources.BlueToRedBackground;
             Name = "Blue Red";
-            PrimaryColor = Color.FromArgb(0, 0, 32);
-            SecondaryColor = Color.FromArgb(0, 0, 64);
+            PrimaryColor = 0xFF000020;
+            SecondaryColor = 0xFF000040;
             ButtonColor = SecondaryColor;
-            ForeColor = Color.FromArgb(255, 255, 255);
+            ForeColor = 0xFFFFFFFF;
         }
     }
 }

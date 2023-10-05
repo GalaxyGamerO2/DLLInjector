@@ -8,20 +8,15 @@ namespace DLLInjector
     public partial class DLLInjector : Form
     {
 
-        readonly List<Theme> Themes = new()
-        {
-            new(),
-            new BlackRed(),
-            new BlueRed(),
-            new NaziCord(),
-        };
-
         List<Process> Processes;
+        readonly ThemeManager ThemeManager;
 
         public DLLInjector()
         {
             InitializeComponent();
             Processes = new();
+            ThemeManager = new();
+            LoadThemeButtons();
             ReloadProcesses();
         }
 
@@ -32,29 +27,64 @@ namespace DLLInjector
 
         public void SetTheme(Theme theme)
         {
-            BackColor = theme.PrimaryColor;
+            BackColor = Color.FromArgb((int)theme.PrimaryColor);
             BackgroundImage = theme.Background;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ForeColor = theme.ForeColor;
+            ForeColor = Color.FromArgb((int)theme.ForeColor);
 
             ApplyThemeRecursive(Controls, theme);
+        }
+
+        void LoadThemeButtons()
+        {
+            ThemesFLP.Controls.Clear();
+
+            for (int i = 0; i < ThemeManager.Themes.Count; i++)
+            {
+                AddThemeButton(ThemeManager.Themes[i]);
+            }
+        }
+
+        void AddThemeButton(Theme theme)
+        {
+            Button themeBtn = new()
+            {
+                BackColor = Color.FromArgb((int)theme.ButtonColor),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = Color.FromArgb((int)theme.ForeColor),
+                Margin = new Padding(0),
+                Name = "ThemeBtn",
+                Size = new Size(theme.Name.Length * 10, 23),
+                TabIndex = ThemesFLP.Controls.Count,
+                Tag = "Theme_Button",
+                Text = theme.Name,
+                UseVisualStyleBackColor = false
+            };
+
+            themeBtn.FlatAppearance.BorderSize = 0;
+            themeBtn.Click += (s, e) =>
+            {
+                SetTheme(theme);
+            };
+            ThemesFLP.Controls.Add(themeBtn);
         }
 
         void ApplyThemeRecursive(Control.ControlCollection controls, Theme theme)
         {
             for (int i = 0; i < controls.Count; i++)
             {
+                if (controls[i].Name == "ThemeBtn") continue;
                 switch ((string)controls[i].Tag)
                 {
                     case "Theme_SecondaryColor":
-                        controls[i].BackColor = theme.SecondaryColor;
+                        controls[i].BackColor = Color.FromArgb((int)theme.SecondaryColor);
                         break;
                     case "Theme_Button":
-                        controls[i].BackColor = theme.ButtonColor;
+                        controls[i].BackColor = Color.FromArgb((int)theme.ButtonColor);
                         break;
                 }
 
-                controls[i].ForeColor = theme.ForeColor;
+                controls[i].ForeColor = Color.FromArgb((int)theme.ForeColor);
                 ApplyThemeRecursive(controls[i].Controls, theme);
             }
         }
@@ -132,7 +162,9 @@ namespace DLLInjector
         private void ThemesBtn_Click(object sender, EventArgs e)
         {
             ThemesFLP.Visible = !ThemesFLP.Visible;
+            ProcessesLV.Visible = !ThemesFLP.Visible;
             ThemesFLP.Enabled = ThemesFLP.Visible;
+            ProcessesLV.Enabled = !ThemesFLP.Visible;
         }
 
         private void ThemeDefaultBtn_Click(object sender, EventArgs e)

@@ -43,12 +43,7 @@
             PIDCH = new ColumnHeader();
             ThemesBtn = new Button();
             ThemesFLP = new FlowLayoutPanel();
-            ThemeDefaultBtn = new Button();
-            ThemeBlackRedBtn = new Button();
-            ThemeBlueRedBtn = new Button();
-            ThemeNaziCordBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ThemesFLP.SuspendLayout();
             SuspendLayout();
             // 
             // ReloadBtn
@@ -207,81 +202,14 @@
             // ThemesFLP
             // 
             ThemesFLP.AutoScroll = true;
-            ThemesFLP.Controls.Add(ThemeDefaultBtn);
-            ThemesFLP.Controls.Add(ThemeBlackRedBtn);
-            ThemesFLP.Controls.Add(ThemeBlueRedBtn);
-            ThemesFLP.Controls.Add(ThemeNaziCordBtn);
             ThemesFLP.Enabled = false;
-            ThemesFLP.Location = new Point(174, 415);
+            ThemesFLP.Location = new Point(12, 147);
             ThemesFLP.Margin = new Padding(0);
             ThemesFLP.Name = "ThemesFLP";
-            ThemesFLP.Size = new Size(340, 23);
+            ThemesFLP.Size = new Size(776, 262);
             ThemesFLP.TabIndex = 9;
+            ThemesFLP.Tag = "Theme_SecondaryColor";
             ThemesFLP.Visible = false;
-            // 
-            // ThemeDefaultBtn
-            // 
-            ThemeDefaultBtn.BackColor = Color.FromArgb(32, 32, 32);
-            ThemeDefaultBtn.FlatAppearance.BorderSize = 0;
-            ThemeDefaultBtn.FlatStyle = FlatStyle.Flat;
-            ThemeDefaultBtn.ForeColor = Color.White;
-            ThemeDefaultBtn.Location = new Point(0, 0);
-            ThemeDefaultBtn.Margin = new Padding(0);
-            ThemeDefaultBtn.Name = "ThemeDefaultBtn";
-            ThemeDefaultBtn.Size = new Size(75, 23);
-            ThemeDefaultBtn.TabIndex = 1;
-            ThemeDefaultBtn.Tag = "Theme_Button";
-            ThemeDefaultBtn.Text = "Default";
-            ThemeDefaultBtn.UseVisualStyleBackColor = false;
-            ThemeDefaultBtn.Click += ThemeDefaultBtn_Click;
-            // 
-            // ThemeBlackRedBtn
-            // 
-            ThemeBlackRedBtn.BackColor = Color.FromArgb(32, 32, 32);
-            ThemeBlackRedBtn.FlatAppearance.BorderSize = 0;
-            ThemeBlackRedBtn.FlatStyle = FlatStyle.Flat;
-            ThemeBlackRedBtn.ForeColor = Color.White;
-            ThemeBlackRedBtn.Location = new Point(75, 0);
-            ThemeBlackRedBtn.Margin = new Padding(0);
-            ThemeBlackRedBtn.Name = "ThemeBlackRedBtn";
-            ThemeBlackRedBtn.Size = new Size(75, 23);
-            ThemeBlackRedBtn.TabIndex = 2;
-            ThemeBlackRedBtn.Tag = "Theme_Button";
-            ThemeBlackRedBtn.Text = "Black Red";
-            ThemeBlackRedBtn.UseVisualStyleBackColor = false;
-            ThemeBlackRedBtn.Click += ThemeBlackRedBtn_Click;
-            // 
-            // ThemeBlueRedBtn
-            // 
-            ThemeBlueRedBtn.BackColor = Color.FromArgb(32, 32, 32);
-            ThemeBlueRedBtn.FlatAppearance.BorderSize = 0;
-            ThemeBlueRedBtn.FlatStyle = FlatStyle.Flat;
-            ThemeBlueRedBtn.ForeColor = Color.White;
-            ThemeBlueRedBtn.Location = new Point(150, 0);
-            ThemeBlueRedBtn.Margin = new Padding(0);
-            ThemeBlueRedBtn.Name = "ThemeBlueRedBtn";
-            ThemeBlueRedBtn.Size = new Size(75, 23);
-            ThemeBlueRedBtn.TabIndex = 3;
-            ThemeBlueRedBtn.Tag = "Theme_Button";
-            ThemeBlueRedBtn.Text = "Blue Red";
-            ThemeBlueRedBtn.UseVisualStyleBackColor = false;
-            ThemeBlueRedBtn.Click += ThemeBlueRedBtn_Click;
-            // 
-            // ThemeNaziCordBtn
-            // 
-            ThemeNaziCordBtn.BackColor = Color.FromArgb(32, 32, 32);
-            ThemeNaziCordBtn.FlatAppearance.BorderSize = 0;
-            ThemeNaziCordBtn.FlatStyle = FlatStyle.Flat;
-            ThemeNaziCordBtn.ForeColor = Color.White;
-            ThemeNaziCordBtn.Location = new Point(225, 0);
-            ThemeNaziCordBtn.Margin = new Padding(0);
-            ThemeNaziCordBtn.Name = "ThemeNaziCordBtn";
-            ThemeNaziCordBtn.Size = new Size(75, 23);
-            ThemeNaziCordBtn.TabIndex = 4;
-            ThemeNaziCordBtn.Tag = "Theme_Button";
-            ThemeNaziCordBtn.Text = "Nazicord";
-            ThemeNaziCordBtn.UseVisualStyleBackColor = false;
-            ThemeNaziCordBtn.Click += ThemeNaziCordBtn_Click;
             // 
             // DLLInjector
             // 
@@ -289,7 +217,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(800, 450);
-            Controls.Add(ThemesFLP);
             Controls.Add(CloseBtn);
             Controls.Add(ProcessesLV);
             Controls.Add(pictureBox1);
@@ -300,6 +227,7 @@
             Controls.Add(DllPathTB);
             Controls.Add(ThemesBtn);
             Controls.Add(ReloadBtn);
+            Controls.Add(ThemesFLP);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DLLInjector";
@@ -307,7 +235,6 @@
             Load += Form1_Load;
             MouseDown += DLLInjector_MouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ThemesFLP.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -327,9 +254,5 @@
         private ColumnHeader PIDCH;
         private Button ThemesBtn;
         private FlowLayoutPanel ThemesFLP;
-        private Button ThemeDefaultBtn;
-        private Button ThemeBlackRedBtn;
-        private Button ThemeBlueRedBtn;
-        private Button ThemeNaziCordBtn;
     }
 }
