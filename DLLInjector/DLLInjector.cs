@@ -10,6 +10,7 @@ namespace DLLInjector
     {
 
         List<Process> Processes;
+        Theme ActiveTheme;
         readonly ThemeManager ThemeManager;
 
         public DLLInjector()
@@ -19,15 +20,13 @@ namespace DLLInjector
             ThemeManager = new();
             LoadThemeButtons();
             ReloadProcesses();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            SetTheme(new());
+            ActiveTheme = new();
+            SetTheme(ActiveTheme);
         }
 
         public void SetTheme(Theme theme)
         {
+            ActiveTheme = theme;
             BackColor = Color.FromArgb((int)theme.PrimaryColor);
             BackgroundImage = theme.Background;
             TitlePB.Image = theme.TitleImage;
@@ -134,7 +133,7 @@ namespace DLLInjector
 
             if (injectResult.Item1)
             {
-                audio.Play(Resources.AufDerHeide, Microsoft.VisualBasic.AudioPlayMode.Background);
+                audio.Play(ActiveTheme.InjectionSuccessSound, Microsoft.VisualBasic.AudioPlayMode.Background);
                 MessageBox.Show(injectResult.Item2, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -176,26 +175,6 @@ namespace DLLInjector
             ProcessesLV.Visible = !ThemesFLP.Visible;
             ThemesFLP.Enabled = ThemesFLP.Visible;
             ProcessesLV.Enabled = !ThemesFLP.Visible;
-        }
-
-        private void ThemeDefaultBtn_Click(object sender, EventArgs e)
-        {
-            SetTheme(new());
-        }
-
-        private void ThemeBlackRedBtn_Click(object sender, EventArgs e)
-        {
-            SetTheme(new BlackRed());
-        }
-
-        private void ThemeBlueRedBtn_Click(object sender, EventArgs e)
-        {
-            SetTheme(new BlueRed());
-        }
-
-        private void ThemeNaziCordBtn_Click(object sender, EventArgs e)
-        {
-            SetTheme(new NaziCord());
         }
     }
 }

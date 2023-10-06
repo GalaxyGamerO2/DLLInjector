@@ -33,6 +33,7 @@ namespace DLLInjector
                     Theme? customTheme = JsonSerializer.Deserialize<Theme>(File.ReadAllText(customThemes[i] + "/theme.json"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) ?? throw new("The theme was null.");
                     if (File.Exists(customThemes[i] + "/background.png")) customTheme.Background = new(customThemes[i] + "/background.png");
                     if (File.Exists(customThemes[i] + "/title.png")) customTheme.TitleImage = new(customThemes[i] + "/title.png");
+                    if (File.Exists(customThemes[i] + "/inject.wav")) customTheme.InjectionSuccessSound = new FileStream(customThemes[i] + "/inject.wav", FileMode.Open);
                     Themes.Add(customTheme);
                 }
                 catch (Exception ex)

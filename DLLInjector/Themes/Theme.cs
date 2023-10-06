@@ -32,6 +32,8 @@ namespace DLLInjector.Themes
         public Bitmap Background { get; set; }
         [JsonIgnore]
         public Bitmap TitleImage { get; set; }
+        [JsonIgnore]
+        public Stream InjectionSuccessSound { get; set; }
 
         public Theme()
         {
@@ -135,6 +137,7 @@ namespace DLLInjector.Themes
 
             Background = new(800, 450);
             TitleImage = Resources.TitleImage;
+            InjectionSuccessSound = Resources.AufDerHeide;
             using Graphics gfx = Graphics.FromImage(Background);
             using SolidBrush brush = new(Color.FromArgb((int)PrimaryColor));
             gfx.FillRectangle(brush, 0, 0, Background.Width, Background.Height);

@@ -232,7 +232,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DLLInjector";
             Text = "Nazi Injector";
-            Load += Form1_Load;
             MouseDown += DLLInjector_MouseDown;
             ((System.ComponentModel.ISupportInitialize)TitlePB).EndInit();
             ResumeLayout(false);
