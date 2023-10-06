@@ -72,6 +72,16 @@ namespace DLLInjector.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackToPurpleBackground {
+            get {
+                object obj = ResourceManager.GetObject("BlackToPurpleBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackToRedBackground {
             get {
                 object obj = ResourceManager.GetObject("BlackToRedBackground", resourceCulture);

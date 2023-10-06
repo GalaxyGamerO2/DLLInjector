@@ -13,6 +13,7 @@ namespace DLLInjector
             {
                 new(),
                 new BlackRed(),
+                new BlackPurple(),
                 new BlueRed(),
                 new NaziCord(),
             };
