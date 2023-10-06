@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DLLInjector.Layouts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace DLLInjector.Themes
         public string SecondaryColorHex { get; set; }
         public string ButtonColorHex { get; set; }
         public string ForeColorHex { get; set; }
+
+        public List<LayoutData> LayoutData { get; set;}
 
         [JsonIgnore]
         public uint PrimaryColor { get { return Convert.ToUInt32(PrimaryColorHex[1..], 16); } set { PrimaryColorHex = "#" + value.ToString("X8"); } }
@@ -35,6 +38,97 @@ namespace DLLInjector.Themes
             SecondaryColorHex = "#FF202020";
             ButtonColorHex = SecondaryColorHex;
             ForeColorHex = "#FFFFFFFF";
+            LayoutData = new()
+            {
+                new LayoutData()
+                {
+                    Name = "TitlePB",
+                    X = 12,
+                    Y = 12,
+                    Width = 776,
+                    Height = 100
+                },
+                new LayoutData()
+                {
+                    Name = "DllLabel",
+                    X = 12,
+                    Y = 122,
+                    Width = 30,
+                    Height = 15
+                },
+                new LayoutData()
+                {
+                    Name = "DllPathTB",
+                    X = 48,
+                    Y = 118,
+                    Width = 659,
+                    Height = 23
+                },
+                new LayoutData()
+                {
+                    Name = "BrowseBtn",
+                    X = 713,
+                    Y = 118,
+                    Width = 75,
+                    Height = 23
+                },
+                new LayoutData()
+                {
+                    Name = "ProcessesLV",
+                    X = 12,
+                    Y = 147,
+                    Width = 776,
+                    Height = 262
+                },
+                new LayoutData()
+                {
+                    Name = "ReloadBtn",
+                    X = 12,
+                    Y = 415,
+                    Width = 75,
+                    Height = 23
+                },
+                new LayoutData()
+                {
+                    Name = "ThemesBtn",
+                    X = 93,
+                    Y = 415,
+                    Width = 75,
+                    Height = 23
+                },
+                new LayoutData()
+                {
+                    Name = "CreditsLabel",
+                    X = 520,
+                    Y = 419,
+                    Width = 187,
+                    Height = 15
+                },
+                new LayoutData()
+                {
+                    Name = "InjectBtn",
+                    X = 713,
+                    Y = 415,
+                    Width = 75,
+                    Height = 23
+                },
+                new LayoutData()
+                {
+                    Name = "CloseBtn",
+                    X = 753,
+                    Y = 12,
+                    Width = 35,
+                    Height = 33
+                },
+                new LayoutData()
+                {
+                    Name = "ThemesFLP",
+                    X = 12,
+                    Y = 147,
+                    Width = 776,
+                    Height = 262
+                },
+            };
 
             Background = new(800, 450);
             using Graphics gfx = Graphics.FromImage(Background);

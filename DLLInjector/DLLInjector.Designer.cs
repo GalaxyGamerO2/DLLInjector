@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DLLInjector));
             ReloadBtn = new Button();
             DllPathTB = new TextBox();
-            label1 = new Label();
+            DllLabel = new Label();
             BrowseBtn = new Button();
             InjectBtn = new Button();
             OpenDLLDialog = new OpenFileDialog();
-            pictureBox1 = new PictureBox();
+            TitlePB = new PictureBox();
             CloseBtn = new Button();
-            label2 = new Label();
+            CreditsLabel = new Label();
             ProcessesLV = new ListView();
             NameCH = new ColumnHeader();
             PIDCH = new ColumnHeader();
             ThemesBtn = new Button();
             ThemesFLP = new FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TitlePB).BeginInit();
             SuspendLayout();
             // 
             // ReloadBtn
@@ -73,16 +73,16 @@
             DllPathTB.TabIndex = 0;
             DllPathTB.Tag = "Theme_SecondaryColor";
             // 
-            // label1
+            // DllLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(0, 0, 0, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 122);
-            label1.Name = "label1";
-            label1.Size = new Size(30, 15);
-            label1.TabIndex = 3;
-            label1.Text = "DLL:";
+            DllLabel.AutoSize = true;
+            DllLabel.BackColor = Color.FromArgb(0, 0, 0, 0);
+            DllLabel.ForeColor = Color.White;
+            DllLabel.Location = new Point(12, 122);
+            DllLabel.Name = "DllLabel";
+            DllLabel.Size = new Size(30, 15);
+            DllLabel.TabIndex = 3;
+            DllLabel.Text = "DLL:";
             // 
             // BrowseBtn
             // 
@@ -119,18 +119,18 @@
             OpenDLLDialog.Filter = "DLL Files|*.dll|All Files|*.*";
             OpenDLLDialog.SupportMultiDottedExtensions = true;
             // 
-            // pictureBox1
+            // TitlePB
             // 
-            pictureBox1.BackColor = Color.FromArgb(0, 0, 0, 0);
-            pictureBox1.Image = Properties.Resources.TitleImage;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(776, 100);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            pictureBox1.Tag = "Theme_Title";
-            pictureBox1.MouseDown += DLLInjector_MouseDown;
+            TitlePB.BackColor = Color.FromArgb(0, 0, 0, 0);
+            TitlePB.Image = Properties.Resources.TitleImage;
+            TitlePB.Location = new Point(12, 12);
+            TitlePB.Name = "TitlePB";
+            TitlePB.Size = new Size(776, 100);
+            TitlePB.SizeMode = PictureBoxSizeMode.Zoom;
+            TitlePB.TabIndex = 6;
+            TitlePB.TabStop = false;
+            TitlePB.Tag = "Theme_Title";
+            TitlePB.MouseDown += DLLInjector_MouseDown;
             // 
             // CloseBtn
             // 
@@ -147,16 +147,16 @@
             CloseBtn.UseVisualStyleBackColor = false;
             CloseBtn.Click += CloseBtn_Click;
             // 
-            // label2
+            // CreditsLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(0, 0, 0, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(520, 419);
-            label2.Name = "label2";
-            label2.Size = new Size(187, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Made by discord@galaxygamero2";
+            CreditsLabel.AutoSize = true;
+            CreditsLabel.BackColor = Color.FromArgb(0, 0, 0, 0);
+            CreditsLabel.ForeColor = Color.White;
+            CreditsLabel.Location = new Point(520, 419);
+            CreditsLabel.Name = "CreditsLabel";
+            CreditsLabel.Size = new Size(187, 15);
+            CreditsLabel.TabIndex = 3;
+            CreditsLabel.Text = "Made by discord@galaxygamero2";
             // 
             // ProcessesLV
             // 
@@ -219,11 +219,11 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CloseBtn);
             Controls.Add(ProcessesLV);
-            Controls.Add(pictureBox1);
+            Controls.Add(TitlePB);
             Controls.Add(InjectBtn);
             Controls.Add(BrowseBtn);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(CreditsLabel);
+            Controls.Add(DllLabel);
             Controls.Add(DllPathTB);
             Controls.Add(ThemesBtn);
             Controls.Add(ReloadBtn);
@@ -234,7 +234,7 @@
             Text = "Nazi Injector";
             Load += Form1_Load;
             MouseDown += DLLInjector_MouseDown;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TitlePB).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,13 +242,13 @@
         #endregion
         private Button ReloadBtn;
         private TextBox DllPathTB;
-        private Label label1;
+        private Label DllLabel;
         private Button BrowseBtn;
         private Button InjectBtn;
         private OpenFileDialog OpenDLLDialog;
-        private PictureBox pictureBox1;
+        private PictureBox TitlePB;
         private Button CloseBtn;
-        private Label label2;
+        private Label CreditsLabel;
         private ListView ProcessesLV;
         private ColumnHeader NameCH;
         private ColumnHeader PIDCH;

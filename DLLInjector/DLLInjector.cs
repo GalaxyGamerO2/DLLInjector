@@ -1,3 +1,4 @@
+using DLLInjector.Layouts;
 using DLLInjector.Properties;
 using DLLInjector.Themes;
 using Microsoft.VisualBasic.Devices;
@@ -74,6 +75,15 @@ namespace DLLInjector
             for (int i = 0; i < controls.Count; i++)
             {
                 if (controls[i].Name == "ThemeBtn") continue;
+
+                LayoutData? layout = theme.LayoutData.First((ld) => { return ld.Name == controls[i].Name; });
+                
+                if(layout is not null)
+                {
+                    controls[i].Location = new(layout.X, layout.Y);
+                    controls[i].Size = new(layout.Width, layout.Height);
+                }
+
                 switch ((string)controls[i].Tag)
                 {
                     case "Theme_SecondaryColor":
