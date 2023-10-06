@@ -30,6 +30,7 @@ namespace DLLInjector
         {
             BackColor = Color.FromArgb((int)theme.PrimaryColor);
             BackgroundImage = theme.Background;
+            TitlePB.Image = theme.TitleImage;
             BackgroundImageLayout = ImageLayout.Zoom;
             ForeColor = Color.FromArgb((int)theme.ForeColor);
 

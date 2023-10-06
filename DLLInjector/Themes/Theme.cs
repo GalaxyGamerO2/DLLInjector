@@ -1,4 +1,5 @@
 ﻿using DLLInjector.Layouts;
+using DLLInjector.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace DLLInjector.Themes
         public uint ForeColor { get { return Convert.ToUInt32(ForeColorHex[1..], 16); } set { ForeColorHex = "#" + value.ToString("X8"); } }
         [JsonIgnore]
         public Bitmap Background { get; set; }
+        [JsonIgnore]
+        public Bitmap TitleImage { get; set; }
 
         public Theme()
         {
@@ -131,6 +134,7 @@ namespace DLLInjector.Themes
             };
 
             Background = new(800, 450);
+            TitleImage = Resources.TitleImage;
             using Graphics gfx = Graphics.FromImage(Background);
             using SolidBrush brush = new(Color.FromArgb((int)PrimaryColor));
             gfx.FillRectangle(brush, 0, 0, Background.Width, Background.Height);
