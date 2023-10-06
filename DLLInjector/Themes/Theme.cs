@@ -1,11 +1,6 @@
 ﻿using DLLInjector.Layouts;
 using DLLInjector.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace DLLInjector.Themes
 {
@@ -18,7 +13,7 @@ namespace DLLInjector.Themes
         public string ButtonColorHex { get; set; }
         public string ForeColorHex { get; set; }
 
-        public List<LayoutData> LayoutData { get; set;}
+        public List<LayoutData> LayoutData { get; set; }
 
         [JsonIgnore]
         public uint PrimaryColor { get { return Convert.ToUInt32(PrimaryColorHex[1..], 16); } set { PrimaryColorHex = "#" + value.ToString("X8"); } }

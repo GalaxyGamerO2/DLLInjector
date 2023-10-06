@@ -1,6 +1,3 @@
-using DLLInjector.Themes;
-using System.Text.Json;
-
 namespace DLLInjector
 {
     internal static class Program

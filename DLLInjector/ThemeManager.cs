@@ -1,10 +1,5 @@
 ﻿using DLLInjector.Themes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace DLLInjector
 {
@@ -25,7 +20,7 @@ namespace DLLInjector
 
             string[] customThemes = Directory.GetDirectories(ThemeDirectory, "*.theme");
 
-            for(int i = 0; i < customThemes.Length; i++)
+            for (int i = 0; i < customThemes.Length; i++)
             {
                 try
                 {

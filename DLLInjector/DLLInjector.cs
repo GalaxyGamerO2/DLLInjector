@@ -1,5 +1,4 @@
 using DLLInjector.Layouts;
-using DLLInjector.Properties;
 using DLLInjector.Themes;
 using Microsoft.VisualBasic.Devices;
 using System.Diagnostics;
@@ -77,8 +76,8 @@ namespace DLLInjector
                 if (controls[i].Name == "ThemeBtn") continue;
 
                 LayoutData? layout = theme.LayoutData.First((ld) => { return ld.Name == controls[i].Name; });
-                
-                if(layout is not null)
+
+                if (layout is not null)
                 {
                     controls[i].Location = new(layout.X, layout.Y);
                     controls[i].Size = new(layout.Width, layout.Height);
