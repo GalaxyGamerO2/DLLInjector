@@ -7,6 +7,8 @@ namespace DLLInjector
     {
         readonly string ThemeDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "NaziInjector", "Themes");
         public List<Theme> Themes { get; private set; }
+        public Theme ActiveTheme { get; private set; }
+
         public ThemeManager()
         {
             Themes = new()
@@ -37,6 +39,13 @@ namespace DLLInjector
                     MessageBox.Show($"Failed to load theme '{Path.GetFileNameWithoutExtension(customThemes[i])}': '{ex.Message}'");
                 }
             }
+
+            ActiveTheme = new();
+        }
+
+        public void SetTheme(Theme theme)
+        {
+            ActiveTheme = theme;
         }
     }
 }

@@ -9,39 +9,35 @@ namespace DLLInjector
     {
 
         List<Process> Processes;
-        Theme ActiveTheme;
-        readonly ThemeManager ThemeManager;
 
         public DLLInjector()
         {
             InitializeComponent();
             Processes = new();
-            ThemeManager = new();
             LoadThemeButtons();
             ReloadProcesses();
-            ActiveTheme = new();
-            SetTheme(ActiveTheme);
+            SetTheme(Globals.ThemeManager!.ActiveTheme);
         }
 
         public void SetTheme(Theme theme)
         {
-            ActiveTheme = theme;
+            Globals.ThemeManager?.SetTheme(theme);
             BackColor = Color.FromArgb((int)theme.PrimaryColor);
             BackgroundImage = theme.Background;
             TitlePB.Image = theme.TitleImage;
             BackgroundImageLayout = ImageLayout.Zoom;
             ForeColor = Color.FromArgb((int)theme.ForeColor);
 
-            ActiveTheme.ApplyThemeRecursive(Controls, theme);
+            Globals.ThemeManager?.ActiveTheme.ApplyThemeRecursive(Controls, theme);
         }
 
         void LoadThemeButtons()
         {
             ThemesFLP.Controls.Clear();
 
-            for (int i = 0; i < ThemeManager.Themes.Count; i++)
+            for (int i = 0; i < Globals.ThemeManager?.Themes.Count; i++)
             {
-                AddThemeButton(ThemeManager.Themes[i]);
+                AddThemeButton(Globals.ThemeManager.Themes[i]);
             }
         }
 
@@ -103,7 +99,7 @@ namespace DLLInjector
 
             if (injectResult.Item1)
             {
-                audio.Play(ActiveTheme.InjectionSuccessSound, Microsoft.VisualBasic.AudioPlayMode.Background);
+                audio.Play(Globals.ThemeManager?.ActiveTheme.InjectionSuccessSound, Microsoft.VisualBasic.AudioPlayMode.Background);
                 MessageBox.Show(injectResult.Item2, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
