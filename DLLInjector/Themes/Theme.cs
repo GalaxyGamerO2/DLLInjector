@@ -137,5 +137,34 @@ namespace DLLInjector.Themes
             using SolidBrush brush = new(Color.FromArgb((int)PrimaryColor));
             gfx.FillRectangle(brush, 0, 0, Background.Width, Background.Height);
         }
+
+        public void ApplyThemeRecursive(Control.ControlCollection controls, Theme theme)
+        {
+            for (int i = 0; i < controls.Count; i++)
+            {
+                if (controls[i].Name == "ThemeBtn") continue;
+
+                LayoutData? layout = theme.LayoutData.First((ld) => { return ld.Name == controls[i].Name; });
+
+                if (layout is not null)
+                {
+                    controls[i].Location = new(layout.X, layout.Y);
+                    controls[i].Size = new(layout.Width, layout.Height);
+                }
+
+                switch ((string)controls[i].Tag)
+                {
+                    case "Theme_SecondaryColor":
+                        controls[i].BackColor = Color.FromArgb((int)theme.SecondaryColor);
+                        break;
+                    case "Theme_Button":
+                        controls[i].BackColor = Color.FromArgb((int)theme.ButtonColor);
+                        break;
+                }
+
+                controls[i].ForeColor = Color.FromArgb((int)theme.ForeColor);
+                ApplyThemeRecursive(controls[i].Controls, theme);
+            }
+        }
     }
 }
