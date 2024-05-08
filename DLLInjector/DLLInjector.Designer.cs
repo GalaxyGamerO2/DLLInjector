@@ -1,4 +1,6 @@
-﻿namespace DLLInjector
+﻿using DLLInjector.Properties;
+
+namespace DLLInjector
 {
     partial class DLLInjector
     {
@@ -43,6 +45,7 @@
             PIDCH = new ColumnHeader();
             ThemesBtn = new Button();
             ThemesFLP = new FlowLayoutPanel();
+            CreateShortcutBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)TitlePB).BeginInit();
             SuspendLayout();
             // 
@@ -122,7 +125,7 @@
             // TitlePB
             // 
             TitlePB.BackColor = Color.FromArgb(0, 0, 0, 0);
-            TitlePB.Image = Properties.Resources.TitleImage;
+            TitlePB.Image = Resources.TitleImage;
             TitlePB.Location = new Point(12, 12);
             TitlePB.Name = "TitlePB";
             TitlePB.Size = new Size(776, 100);
@@ -211,6 +214,21 @@
             ThemesFLP.Tag = "Theme_SecondaryColor";
             ThemesFLP.Visible = false;
             // 
+            // CreateShortcutBtn
+            // 
+            CreateShortcutBtn.BackColor = Color.FromArgb(32, 32, 32);
+            CreateShortcutBtn.FlatAppearance.BorderSize = 0;
+            CreateShortcutBtn.FlatStyle = FlatStyle.Flat;
+            CreateShortcutBtn.ForeColor = Color.White;
+            CreateShortcutBtn.Location = new Point(174, 415);
+            CreateShortcutBtn.Name = "CreateShortcutBtn";
+            CreateShortcutBtn.Size = new Size(120, 23);
+            CreateShortcutBtn.TabIndex = 5;
+            CreateShortcutBtn.Tag = "Theme_Button";
+            CreateShortcutBtn.Text = "Create Shortcut";
+            CreateShortcutBtn.UseVisualStyleBackColor = false;
+            CreateShortcutBtn.Click += CreateShortcutBtn_Click;
+            // 
             // DLLInjector
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -220,6 +238,7 @@
             Controls.Add(CloseBtn);
             Controls.Add(ProcessesLV);
             Controls.Add(TitlePB);
+            Controls.Add(CreateShortcutBtn);
             Controls.Add(InjectBtn);
             Controls.Add(BrowseBtn);
             Controls.Add(CreditsLabel);
@@ -253,5 +272,6 @@
         private ColumnHeader PIDCH;
         private Button ThemesBtn;
         private FlowLayoutPanel ThemesFLP;
+        private Button CreateShortcutBtn;
     }
 }

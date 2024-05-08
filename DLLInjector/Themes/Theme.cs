@@ -144,7 +144,7 @@ namespace DLLInjector.Themes
             {
                 if (controls[i].Name == "ThemeBtn") continue;
 
-                LayoutData? layout = theme.LayoutData.First((ld) => { return ld.Name == controls[i].Name; });
+                LayoutData? layout = theme.LayoutData.Find((ld) => { return ld.Name == controls[i].Name; });
 
                 if (layout is not null)
                 {

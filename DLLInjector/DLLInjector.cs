@@ -1,7 +1,9 @@
 using DLLInjector.Layouts;
 using DLLInjector.Themes;
+using IWshRuntimeLibrary;
 using Microsoft.VisualBasic.Devices;
 using System.Diagnostics;
+using File = System.IO.File;
 
 namespace DLLInjector
 {
@@ -113,6 +115,58 @@ namespace DLLInjector
             DllPathTB.Text = OpenDLLDialog.FileName;
         }
 
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ThemesBtn_Click(object sender, EventArgs e)
+        {
+            ThemesFLP.Visible = !ThemesFLP.Visible;
+            ProcessesLV.Visible = !ThemesFLP.Visible;
+            ThemesFLP.Enabled = ThemesFLP.Visible;
+            ProcessesLV.Enabled = !ThemesFLP.Visible;
+        }
+
+        private void CreateShortcutBtn_Click(object sender, EventArgs e)
+        {
+            if (ProcessesLV.SelectedIndices.Count < 1)
+            {
+                MessageBox.Show("Select a process first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!File.Exists(DllPathTB.Text))
+            {
+                MessageBox.Show("The provided DLL does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string path = string.Empty;
+            try
+            {
+                string id = Guid.NewGuid().ToString();
+                path = Path.Combine(Globals.ConfigDirectory, "DllShortcuts", id + Path.GetExtension(DllPathTB.Text));
+                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+                File.Copy(DllPathTB.Text, path);
+
+                string target = Path.Combine(Environment.CurrentDirectory, Path.GetFileNameWithoutExtension(DllPathTB.Text) + ".lnk");
+                WshShell shell = new();
+                IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(target);
+                shortcut.TargetPath = Application.ExecutablePath;
+                shortcut.Arguments = $"/noApp /injectDll \"{path}:::{Path.GetFileName(Processes[ProcessesLV.SelectedIndices[0]].MainModule!.FileName)}\"";
+
+                shortcut.Save();
+
+                MessageBox.Show($"Created Shortcut with filename \"{target}\".");
+            }
+            catch(Exception ex)
+            {
+                try { File.Delete(path); } catch { }
+                MessageBox.Show("Could not create the shortcut: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
 
@@ -128,19 +182,6 @@ namespace DLLInjector
                 ReleaseCapture();
                 _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void ThemesBtn_Click(object sender, EventArgs e)
-        {
-            ThemesFLP.Visible = !ThemesFLP.Visible;
-            ProcessesLV.Visible = !ThemesFLP.Visible;
-            ThemesFLP.Enabled = ThemesFLP.Visible;
-            ProcessesLV.Enabled = !ThemesFLP.Visible;
         }
     }
 }

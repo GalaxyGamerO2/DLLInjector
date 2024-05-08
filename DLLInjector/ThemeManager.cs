@@ -5,7 +5,7 @@ namespace DLLInjector
 {
     public class ThemeManager
     {
-        readonly string ThemeDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "NaziInjector", "Themes");
+        readonly string ThemeDirectory = Path.Combine(Globals.ConfigDirectory, "Themes");
         public List<Theme> Themes { get; private set; }
         public Theme ActiveTheme { get; private set; }
 
