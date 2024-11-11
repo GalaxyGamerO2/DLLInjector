@@ -101,6 +101,7 @@ namespace DLLInjector
 
             if (injectResult.Item1)
             {
+                Globals.ThemeManager?.ActiveTheme.InjectionSuccessSound.Seek(0, SeekOrigin.Begin);
                 audio.Play(Globals.ThemeManager?.ActiveTheme.InjectionSuccessSound, Microsoft.VisualBasic.AudioPlayMode.Background);
                 MessageBox.Show(injectResult.Item2, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
